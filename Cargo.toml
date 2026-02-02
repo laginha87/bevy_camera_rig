@@ -1,6 +1,6 @@
 [package]
 name = "bevy_camera_rig"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 authors = ["Filipe Correia <filipe.lp.correia@gmail.com"]
 license = "MIT OR Apache-2.0"
@@ -21,15 +21,15 @@ name = "bevy_camera_rig"
 
 
 [dependencies.bevy]
-version = "0.16"
+version = "0.17"
 features = ["bevy_render", "bevy_window"]
 default-features = false
 
 [dev-dependencies]
-bevy-inspector-egui = "0.31"
+bevy-inspector-egui = "0.35"
 
 [dev-dependencies.bevy]
-version = "0.16"
+version = "0.17"
 features = [
     "bevy_core_pipeline",
     "animation",
@@ -42,7 +42,6 @@ features = [
     "bevy_state",
     "png",
     "ktx2",
-    "zstd",
     "tonemapping_luts",
     "bevy_gizmos",
     "dynamic_linking"

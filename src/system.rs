@@ -3,7 +3,7 @@ use std::collections::HashSet;
 use crate::prelude::*;
 use bevy::prelude::*;
 
-#[derive(Event)]
+#[derive(Message)]
 pub struct RigChanged(Entity);
 
 #[derive(Component, Reflect)]
@@ -37,7 +37,7 @@ pub fn update_camera_position(
     mut cameras: Query<(&mut Transform, &Children)>,
     mut drivers: Query<&mut RigDriver>,
     time: Res<Time>,
-    mut camera_changed_event: EventReader<RigChanged>,
+    mut camera_changed_event: MessageReader<RigChanged>,
 ) {
     if camera_changed_event.is_empty() {
         return;
@@ -64,7 +64,7 @@ pub fn update_camera_position(
 
 pub fn track_rig_changes(
     drivers: Query<&ChildOf, Changed<RigDriver>>,
-    mut camera_changed_event: EventWriter<RigChanged>,
+    mut camera_changed_event: MessageWriter<RigChanged>,
 ) {
     for child_of in drivers {
         camera_changed_event.write(RigChanged(child_of.parent()));

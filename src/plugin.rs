@@ -9,7 +9,7 @@ pub struct CameraRigPlugin;
 
 impl Plugin for CameraRigPlugin {
     fn build(&self, app: &mut App) {
-        app.add_event::<RigChanged>()
+        app.add_message::<RigChanged>()
             .add_systems(
                 Update,
                 (
